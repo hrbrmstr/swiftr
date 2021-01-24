@@ -94,6 +94,10 @@ init_file_auto_generated <- function(src_dir) {
 
 }
 
+#' This examines a package swift file and builds the necessary registration glue code
+#'
+#' @param package where the package lives
+#' @return nothing directly, but has a side effect of creating `init.c`
 #' @export
 add_registration_glue <- function(package = ".") {
 

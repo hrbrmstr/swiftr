@@ -2,3 +2,4 @@
 
 export(add_registration_glue)
 import(rprojroot)
+import(stringi)
