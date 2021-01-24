@@ -1,9 +1,8 @@
-#' ...
-#' 
+#' Seamless R and Swift Integration
+#'
 #' @md
 #' @name swiftr
 #' @keywords internal
 #' @author Bob Rudis (bob@@rud.is)
-#' @import httr
-#' @importFrom jsonlite fromJSON
+#' @import rprojroot stringi
 "_PACKAGE"

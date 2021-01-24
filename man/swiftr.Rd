@@ -4,9 +4,9 @@
 \name{swiftr}
 \alias{swiftr}
 \alias{swiftr-package}
-\title{...}
+\title{Seamless R and Swift Integration}
 \description{
-A good description goes here otherwise CRAN checks fail.
+eamless R and Swift Integration
 }
 \seealso{
 Useful links:
