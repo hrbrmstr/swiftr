@@ -4,10 +4,19 @@
 \alias{swift_function}
 \title{Define an R Function with a Swift Implementation}
 \usage{
-swift_function(code, cache_dir = tempdir())
+swift_function(
+  code,
+  env = globalenv(),
+  imports = c("Foundation"),
+  cache_dir = tempdir()
+)
 }
 \arguments{
 \item{code}{Source code for the Swift function definition.}
+
+\item{env}{Environment where the R functions and modules should be made available.}
+
+\item{imports}{Character vector of Swift frameworks to import.}
 
 \item{cache_dir}{Directory to use for caching shared libraries. The default
 value of \code{\link[=tempdir]{tempdir()}} results in the cache being valid only for the current

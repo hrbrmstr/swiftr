@@ -39,6 +39,52 @@ packageVersion("swiftr")
 
 ```
 
+```{r ex01}
+swift_function(
+  code = '
+
+func ignored() {
+  print("""
+this will be ignored by swift_function() but you could use private
+functions as helpers for the main public Swift function which will be 
+made available to R.
+""")
+}  
+
+@_cdecl ("read_plist")
+public func read_plist(path: SEXP) -> SEXP {
+  
+  var out: SEXP = R_NilValue
+  
+  do {
+    // read in the raw plist
+    let plistRaw = try Data(contentsOf: URL(fileURLWithPath: String(cString: R_CHAR(STRING_ELT(path, 0)))))
+  
+    // convert it to a PropertyList  
+    let plist = try PropertyListSerialization.propertyList(from: plistRaw, options: [], format: nil) as! [String:Any]
+    
+    // serialize it to JSON
+    let jsonData = try JSONSerialization.data(withJSONObject: plist , options: .prettyPrinted)
+    
+    // setup the JSON string return
+    String(data: jsonData, encoding: .utf8)?.withCString { 
+      cstr in out = Rf_mkString(cstr) 
+    }
+    
+  } catch {
+    debugPrint("\\(error)")
+  }
+  
+  return(out)
+  
+}
+')
+
+read_plist("/Applications/RStudio.app/Contents/Info.plist") %>% 
+  jsonlite::fromJSON() %>% 
+  str(1)
+```
+
 ## swiftr Metrics
 
 ```{r cloc, echo=FALSE}

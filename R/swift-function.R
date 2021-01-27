@@ -5,6 +5,7 @@
 #' that uses `.Call` to invoke the library.
 #'
 #' @param code Source code for the Swift function definition.
+#' @param env Environment where the R functions and modules should be made available.
 #' @param imports Character vector of Swift frameworks to import.
 #' @param cache_dir Directory to use for caching shared libraries. The default
 #'        value of [tempdir()] results in the cache being valid only for the current
@@ -12,7 +13,7 @@
 #' @note Remember that the function need to be `public` and that you need to put
 #'       the required `@@_cdecl ("…")` decorator before the function definition.
 #' @export
-swift_function <- function(code, imports = c("Foundation"), cache_dir = tempdir()) {
+swift_function <- function(code, env = globalenv(), imports = c("Foundation"), cache_dir = tempdir()) {
 
   arch <- sprintf("--%s", Sys.info()["machine"])
 
@@ -22,7 +23,7 @@ swift_function <- function(code, imports = c("Foundation"), cache_dir = tempdir(
 
   source_file <- basename(tempfile(fileext = ".swift"))
 
-  module_name <- sprintf("swift_%s", digest::digest(code))
+  module_name <- sprintf("swiftr_%s", digest::digest(code))
 
   writeLines(
     text = c(
@@ -143,7 +144,7 @@ swift_function <- function(code, imports = c("Foundation"), cache_dir = tempdir(
         collapse = "\n"
       ) -> ƒ
 
-      eval.parent(parse(text = ƒ), 2)
+      eval(parse(text = ƒ), envir = env)
 
       # list(
       #   fname = fname,
@@ -154,13 +155,17 @@ swift_function <- function(code, imports = c("Foundation"), cache_dir = tempdir(
 
     } else {
 
-      cat(readLines(stderr))
+      message("COMPILATION ERROR")
+
+      # cat(readLines(stderr))
 
     }
 
   } else {
 
-    cat(readLines(stderr))
+    message("SYNTAX ERROR")
+
+    # cat(readLines(stderr))
 
   }
 
