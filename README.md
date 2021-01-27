@@ -37,6 +37,8 @@ remotes::install_git("https://git.rud.is/hrbrmstr/swiftr.git")
 # or
 remotes::install_gitlab("hrbrmstr/swiftr")
 # or
+remotes::install_bitbucket("hrbrmstr/swiftr")
+# or
 remotes::install_github("hrbrmstr/swiftr")
 ```
 
@@ -98,38 +100,38 @@ read_plist("/Applications/RStudio.app/Contents/Info.plist") %>%
   jsonlite::fromJSON() %>% 
   str(1)
 ## List of 32
-##  $ NSCalendarsUsageDescription          : chr "R wants to access calendars."
-##  $ LSRequiresCarbon                     : logi TRUE
-##  $ NSPhotoLibraryAddUsageDescription    : chr "R wants write access to the photo library."
-##  $ CFBundlePackageType                  : chr "APPL"
-##  $ NSRemindersUsageDescription          : chr "R wants to access the reminders."
-##  $ CFBundleIdentifier                   : chr "org.rstudio.RStudio"
-##  $ NSLocationWhenInUseUsageDescription  : chr "R wants to access location information."
-##  $ NSMicrophoneUsageDescription         : chr "R wants to access the microphone."
-##  $ LSApplicationCategoryType            : chr "public.app-category.developer-tools"
-##  $ NSHumanReadableCopyright             : chr "RStudio 1.4.1093-1, © 2009-2020 RStudio, PBC"
-##  $ CFBundleIconFile                     : chr "RStudio.icns"
-##  $ NSAppleScriptEnabled                 : logi TRUE
 ##  $ CFBundleVersion                      : chr "1.4.1093-1"
-##  $ CFBundleInfoDictionaryVersion        : chr "6.0"
-##  $ CFBundleGetInfoString                : chr "RStudio 1.4.1093-1, © 2009-2020 RStudio, PBC"
-##  $ CSResourcesFileMapped                : logi TRUE
-##  $ CFBundleName                         : chr "RStudio"
+##  $ NSPhotoLibraryAddUsageDescription    : chr "R wants write access to the photo library."
 ##  $ NSHighResolutionCapable              : logi TRUE
-##  $ NSContactsUsageDescription           : chr "R wants to access contacts."
-##  $ NSSupportsAutomaticGraphicsSwitching : logi TRUE
-##  $ NSCameraUsageDescription             : chr "R wants to access the camera."
-##  $ NSAppleEventsUsageDescription        : chr "R wants to run AppleScript."
-##  $ NSPrincipalClass                     : chr "NSApplication"
-##  $ OSAScriptingDefinition               : chr "RStudio.sdef"
-##  $ NSBluetoothPeripheralUsageDescription: chr "R wants to access bluetooth."
-##  $ CFBundleDocumentTypes                :'data.frame':   16 obs. of  8 variables:
-##  $ CFBundleShortVersionString           : chr "1.4.1093-1"
-##  $ CFBundleDevelopmentRegion            : chr "English"
-##  $ NSPhotoLibraryUsageDescription       : chr "R wants to access the photo library."
+##  $ NSCalendarsUsageDescription          : chr "R wants to access calendars."
 ##  $ CFBundleLongVersionString            : chr "1.4.1093-1"
+##  $ NSContactsUsageDescription           : chr "R wants to access contacts."
+##  $ CFBundleGetInfoString                : chr "RStudio 1.4.1093-1, © 2009-2020 RStudio, PBC"
+##  $ NSPrincipalClass                     : chr "NSApplication"
+##  $ NSCameraUsageDescription             : chr "R wants to access the camera."
+##  $ NSPhotoLibraryUsageDescription       : chr "R wants to access the photo library."
+##  $ CFBundleInfoDictionaryVersion        : chr "6.0"
+##  $ NSRemindersUsageDescription          : chr "R wants to access the reminders."
 ##  $ CFBundleSignature                    : chr "Rstd"
+##  $ CFBundleIconFile                     : chr "RStudio.icns"
+##  $ LSRequiresCarbon                     : logi TRUE
+##  $ LSApplicationCategoryType            : chr "public.app-category.developer-tools"
 ##  $ CFBundleExecutable                   : chr "RStudio"
+##  $ CFBundlePackageType                  : chr "APPL"
+##  $ NSAppleScriptEnabled                 : logi TRUE
+##  $ CFBundleDocumentTypes                :'data.frame':   16 obs. of  8 variables:
+##  $ OSAScriptingDefinition               : chr "RStudio.sdef"
+##  $ CSResourcesFileMapped                : logi TRUE
+##  $ NSHumanReadableCopyright             : chr "RStudio 1.4.1093-1, © 2009-2020 RStudio, PBC"
+##  $ CFBundleDevelopmentRegion            : chr "English"
+##  $ CFBundleIdentifier                   : chr "org.rstudio.RStudio"
+##  $ NSBluetoothPeripheralUsageDescription: chr "R wants to access bluetooth."
+##  $ NSAppleEventsUsageDescription        : chr "R wants to run AppleScript."
+##  $ NSLocationWhenInUseUsageDescription  : chr "R wants to access location information."
+##  $ CFBundleShortVersionString           : chr "1.4.1093-1"
+##  $ NSMicrophoneUsageDescription         : chr "R wants to access the microphone."
+##  $ CFBundleName                         : chr "RStudio"
+##  $ NSSupportsAutomaticGraphicsSwitching : logi TRUE
 ```
 
 ## swiftr Metrics
