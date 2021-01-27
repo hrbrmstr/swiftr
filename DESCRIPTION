@@ -19,6 +19,7 @@ Depends:
     R (>= 3.6.0)
 Imports: 
     rprojroot,
+    usethis,
     stringi
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
