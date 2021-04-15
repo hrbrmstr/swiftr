@@ -28,6 +28,7 @@ swift_function <- function(code, env = globalenv(), imports = c("Foundation"), c
   writeLines(
     text = c(
       sprintf("import %s", imports),
+      readLines(system.file("include", "utils.swift", package = "swiftr"), warn = FALSE),
       code
     ),
     con =  file.path(cache_dir, source_file)
@@ -165,7 +166,7 @@ swift_function <- function(code, env = globalenv(), imports = c("Foundation"), c
 
     message("SYNTAX ERROR")
 
-    # cat(readLines(stderr))
+    invisible(readLines(stderr))
 
   }
 
