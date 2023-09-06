@@ -20,7 +20,7 @@ Seamless R and Swift Integration
 
 ## Description
 
-eamless R and Swift Integration
+Seamless R and Swift Integration
 
 ## What’s Inside The Tin
 
